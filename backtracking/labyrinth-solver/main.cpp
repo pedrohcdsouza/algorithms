@@ -4,9 +4,9 @@
 using namespace std;
 
 bool labyrinth_bt(int row, int column, int r, int c, vector<vector<int>>& labyrinth){
-    
+
     // BASE CASE //
-    if(r<0 || c<0 || r>=row || c>=column || labyrinth[r][c] == 1)
+    if(r<0 || c<0 || r>=row || c>=column || labyrinth[r][c] != 0)
         return false;
     
     if(r == row - 1 && c == column - 1) 
@@ -18,7 +18,7 @@ bool labyrinth_bt(int row, int column, int r, int c, vector<vector<int>>& labyri
     bool route =    labyrinth_bt(row, column, r+1, c, labyrinth) ||   
                     labyrinth_bt(row, column, r, c+1, labyrinth) ||   
                     labyrinth_bt(row, column, r-1, c, labyrinth);     
-
+    labyrinth[r][c] = 0;
     
     return route;
 }
