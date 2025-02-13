@@ -17,7 +17,8 @@ bool labyrinth_bt(int row, int column, int r, int c, vector<vector<int>>& labyri
     // RECURSIVE CALL // 
     bool route =    labyrinth_bt(row, column, r+1, c, labyrinth) ||   
                     labyrinth_bt(row, column, r, c+1, labyrinth) ||   
-                    labyrinth_bt(row, column, r-1, c, labyrinth);     
+                    labyrinth_bt(row, column, r-1, c, labyrinth) ||
+                    labyrinth_bt(row, column, r, c-1, labyrinth);     
     labyrinth[r][c] = 0;
     
     return route;
