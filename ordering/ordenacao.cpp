@@ -26,7 +26,7 @@ for(unsigned int i = 0; i < t - 1; i++){
     a[i] = a[min];
     a[min] = aux;
     }
-}
+    }
 }
 
 void insercao(int a[], unsigned int t){
@@ -41,7 +41,7 @@ for (i = 1; i < t; ++i) {
         --j;
     }
     a[j + 1] = x; 
-}
+    }
 }
 
 void merge(int a[], int i1, int j1, int i2, int j2) {
