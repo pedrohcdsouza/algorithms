@@ -44,38 +44,41 @@ for (i = 1; i < t; ++i) {
     }
 }
 
-void merge(int a[], int i1, int j1, int i2, int j2) {
-int* temp = new int[(j1 - i1 + 1) + (j2 - i2 + 1)];
-int i = i1, j = i2, k = 0;
+void merge(int a[], int i1, int j1, int i2, int j2, int temp[]) {
+    int i = i1, j = i2, k = 0;
 
-while (i <= j1 && j <= j2) {
-    if (a[i] < a[j]) {
+    while (i <= j1 && j <= j2) {
+        if (a[i] < a[j]) {
+            temp[k++] = a[i++];
+        } else {
+            temp[k++] = a[j++];
+        }
+    }
+
+    while (i <= j1) {
         temp[k++] = a[i++];
-    } else {
+    }
+
+    while (j <= j2) {
         temp[k++] = a[j++];
     }
-}
 
-while (i <= j1) {
-    temp[k++] = a[i++];
-}
-
-while (j <= j2) {
-    temp[k++] = a[j++];
-}
-
-for (i = i1, k = 0; i <= j2; ++i, ++k) {
-    a[i] = temp[k];
-}
-
-delete[] temp;
-}
-
-void merge_sort(int a[], int primeiro, int ultimo) {
-if (primeiro < ultimo) {
-    int meio = (primeiro + ultimo) / 2;
-    merge_sort(a, primeiro, meio);
-    merge_sort(a, meio + 1, ultimo);
-    merge(a, primeiro, meio, meio + 1, ultimo);
+    for (i = i1, k = 0; i <= j2; ++i, ++k) {
+        a[i] = temp[k];
     }
+}
+
+void merge_sort(int a[], int primeiro, int ultimo, int temp[]) {
+    if (primeiro < ultimo) {
+        int meio = (primeiro + ultimo) / 2;
+        merge_sort(a, primeiro, meio, temp);
+        merge_sort(a, meio + 1, ultimo, temp);
+        merge(a, primeiro, meio, meio + 1, ultimo, temp);
+    }
+}
+
+void merge_sort(int a[], int tamanho) {
+    int* temp = new int[tamanho];
+    merge_sort(a, 0, tamanho - 1, temp);
+    delete[] temp;
 }
