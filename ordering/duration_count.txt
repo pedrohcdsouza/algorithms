@@ -1,0 +1,11 @@
+SELECTION: 
+10000 -> 96204 microseconds | 20000 -> 380933 microseconds | 30000 -> 927263 microseconds | 40000 -> 1552114 microseconds | 50000 -> 2460683 microseconds |
+60000 -> 3456569 microseconds | 70000 -> 4743358 microseconds | 80000 -> 6106993 microseconds | 90000 -> 7756176 microseconds | 10000 -> 9841270 microseconds |
+
+INSERTION:
+10000 -> 66863 microseconds | 20000 -> 243251 microseconds | 30000 -> 572385 microseconds | 40000 -> 1033323 microseconds | 50000 -> 1615733 microseconds |
+60000 -> 2343769 microseconds | 70000 -> 3211177 microseconds | 80000 -> 4112651 microseconds | 90000 -> 5260513 microseconds | 10000 -> 6545727 microseconds |
+
+MERGE-SORT:
+10000 -> 578 microseconds | 20000 -> 1777 microseconds | 30000 -> 2446 microseconds | 40000 -> 3475 microseconds | 50000 -> 4546 microseconds |
+60000 -> 5739 microseconds | 70000 -> 7414 microseconds | 80000 -> 9923 microseconds | 90000 -> 10588 microseconds | 100000 -> 11210 microseconds |
